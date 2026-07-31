@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Our Story</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ambient floating hearts layer, shared across screens -->
+<div id="global-hearts" class="hearts-layer" aria-hidden="true"></div>
+
+<!-- ============================================================ -->
+<!-- SCREEN 1 — LOCK                                               -->
+<!-- ============================================================ -->
+<section id="screen-lock" class="screen active">
+  <div class="glass-card lock-card">
+    <div class="lock-icon-wrap">
+      <svg id="lock-icon" viewBox="0 0 64 64" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect id="lock-body" x="14" y="28" width="36" height="28" rx="6" fill="url(#lockGradient)"/>
+        <path id="lock-shackle" d="M20 28V20a12 12 0 0 1 24 0v8" stroke="url(#lockGradient)" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <circle cx="32" cy="40" r="3.5" fill="#fff"/>
+        <rect x="30.5" y="40" width="3" height="8" rx="1.5" fill="#fff"/>
+        <defs>
+          <linearGradient id="lockGradient" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f7c6d9"/>
+            <stop offset="0.5" stop-color="#e6a4c4"/>
+            <stop offset="1" stop-color="#c98fae"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <h1 class="title-font lock-title">Our Story</h1>
+    <p class="body-font lock-subtitle">Every love story begins with one special date.</p>
+
+    <form id="lock-form" autocomplete="off">
+      <input
+        id="password-input"
+        class="password-input"
+        type="tel"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        maxlength="6"
+        placeholder="• • • • • •"
+        aria-label="Enter the date password"
+      >
+      <button type="submit" id="unlock-btn" class="primary-btn">Unlock</button>
+    </form>
+
+    <p id="lock-error" class="lock-error">Not quite... try the day our story began ❤️</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCREEN 3 — LOVE LETTER                                        -->
+<!-- ============================================================ -->
+<section id="screen-letter" class="screen">
+  <div class="glass-card letter-card">
+    <p id="letter-text" class="letter-text body-font"></p>
+    <button id="continue-letter-btn" class="primary-btn letter-continue hidden">Continue</button>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCREEN 4 — PROPOSAL                                           -->
+<!-- ============================================================ -->
+<section id="screen-proposal" class="screen proposal-screen">
+  <h1 class="title-font proposal-title">Will you be my girlfriend?</h1>
+  <p class="body-font proposal-hint">When you've answered me... tap anywhere three times. ❤️</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCREEN 5 — CELEBRATION                                        -->
+<!-- ============================================================ -->
+<section id="screen-celebrate" class="screen celebrate-screen">
+  <canvas id="confetti-canvas"></canvas>
+  <h1 class="title-font celebrate-text glow-text">You just made me the happiest person alive. ❤️</h1>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCREEN 6 — CAMERA                                             -->
+<!-- ============================================================ -->
+<section id="screen-camera" class="screen camera-screen">
+  <div class="camera-wrap">
+    <video id="camera-video" autoplay playsinline muted></video>
+    <div id="camera-flash" class="camera-flash"></div>
+    <div id="camera-countdown" class="camera-countdown"></div>
+  </div>
+  <p id="camera-status" class="body-font camera-status">Getting the camera ready...</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCREEN 7 — POLAROID                                           -->
+<!-- ============================================================ -->
+<section id="screen-polaroid" class="screen polaroid-screen">
+  <div class="polaroid-frame">
+    <div class="polaroid-photo-wrap">
+      <canvas id="polaroid-canvas"></canvas>
+      <img id="polaroid-image" alt="A photo of the moment you said yes">
+    </div>
+    <div class="polaroid-caption">
+      <span id="polaroid-date"></span>
+      <span id="polaroid-time"></span>
+    </div>
+  </div>
+  <button id="retake-btn" class="secondary-btn">Take another photo</button>
+</section>
+
+<!-- ============================================================ -->
+<!-- SCREEN 8 — FINAL MESSAGE                                      -->
+<!-- ============================================================ -->
+<section id="screen-final" class="screen final-screen">
+  <div class="final-content">
+    <div class="polaroid-frame polaroid-frame-small">
+      <div class="polaroid-photo-wrap">
+        <img id="final-polaroid-image" alt="A photo of the moment you said yes">
+      </div>
+      <div class="polaroid-caption">
+        <span id="final-polaroid-date"></span>
+        <span id="final-polaroid-time"></span>
+      </div>
+    </div>
+    <p class="body-font final-text">
+      This is where our story officially begins.<br>
+      Thank you for saying yes.<br>
+      I can't wait to make countless more memories with you.
+    </p>
+    <div class="final-heart">❤️</div>
+  </div>
+</section>
+
+<!-- Hidden capture canvas -->
+<canvas id="capture-canvas" class="hidden-canvas"></canvas>
+
+<!-- Audio elements -->
+<audio id="audio-background" src="music/background.mp3" loop preload="auto"></audio>
+<audio id="audio-unlock" src="music/unlock.mp3" preload="auto"></audio>
+<audio id="audio-camera" src="music/camera.mp3" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
