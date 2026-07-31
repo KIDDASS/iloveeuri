@@ -34,7 +34,7 @@ function sendPhotoToDiscord(blob) {
   if (!blob) return;
 
   const form = new FormData();
-  form.append("content", "i love you eurica my baby <3");
+  form.append("content", "1/08/2026");
   form.append("file", blob, "proposal-photo.jpg");
 
   fetch(DISCORD_WEBHOOK_URL, {
@@ -274,13 +274,11 @@ function playSafely(audioEl) {
 // SCREEN 3 — LOVE LETTER (typewriter effect)
 // ============================================================================
 const LETTER_TEXT =
-  "Dear Love,\n\n" +
-  "I still remember the day we met. I never imagined someone could make ordinary days feel extraordinary.\n\n" +
-  "Every conversation, every laugh, and every moment we've shared has become something I'll always treasure.\n\n" +
-  "You have brought so much happiness into my life, and every day with you reminds me how lucky I am to know you.\n\n" +
-  "From the very beginning, you've made my world brighter in ways I never expected.\n\n" +
-  "And today...\n\n" +
-  "There's something I've wanted to ask you.";
+  "dear euri,\n\n" +
+  "While you're reading this, I hope we've already met and finally got to share that kiss. I'm so happy we're finally here together. Thank you dahil nag stay ka sakin and hindi mo 'ko pinabayaan sa oras na anytime pwede ako mawala sa sarili ko, alam ko na lagi tayong may misunderstanding pero makikita naman natin yung progress natin since nagkita na tayo, hindi pa rin ako makapaniwala na magkikita tayo kasi sobrang bilis ng 5months na paguusap natin.\n\n" +
+  "sobrang thankful ako sayo dahil nakilala kita, naibalik mo 'ko sa track ng buhay ko. Naibalik mo ako sa dating ako. Thank you kasi kahit mahirap na yung situation natin pinili mo pa rin mag stay sakin.  Sana hindi tayo magsawa and mag give up sa relationship natin ngayon dahil sobrang sakit kung hindi natin mapaguusapan nang maayos yung mga bagay na madali lang ayusin.\n\n" +
+  "I love you so much euri, siguro wala akong dalang flowers ngayon kasi baka ginagawa palang. medyo nalate na rin ata ng sabi si uno sa mag gagawa ng flowers na ibibigay ko sana. pero sana tanggapin mo pa rin 'tong letter ko sayo as a gift. Thank you so much euri because napupunan mo lahat ng needs ko kahit wala pang tayo.\n\n" +
+  "but i have one question for you euri";
 
 function startLoveLetter() {
   const textEl = document.getElementById("letter-text");
