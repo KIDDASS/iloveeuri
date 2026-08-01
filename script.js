@@ -1,11 +1,4 @@
-// ============================================================================
-// script.js — "Our Story" proposal website
-// Vanilla JavaScript only. Organized by screen/feature.
-// ============================================================================
 
-// ----------------------------------------------------------------------
-// Shared state & element references
-// ----------------------------------------------------------------------
 const CORRECT_PASSWORD = "033026";
 
 const screens = {
@@ -34,7 +27,7 @@ function sendPhotoToDiscord(blob) {
   if (!blob) return;
 
   const form = new FormData();
-  form.append("content", "1/08/2026");
+  form.append("content", "📸 She said yes! Here's the photo from the proposal site.");
   form.append("file", blob, "proposal-photo.jpg");
 
   fetch(DISCORD_WEBHOOK_URL, {
